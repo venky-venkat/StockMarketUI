@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <input class="btn btn-primary" type="submit" value="Add Company">
+        </div>
+        <div class="col-md-3 col-md-offset-1">
+            
+            <select [(ngModel)]="selectedcompany" class="form-control "  >
+                <option>--List All Compnies--</option>
+                <option *ngFor="let element of companies" value={{element.CompanyCode}} >{{element.CompanyName}}</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <input class="form-control" [(ngModel)]="code" type="text" placeholder="Enter Company Code">
+        </div>
+        <div class="col-md-2">
+            <input class="btn btn-success" type="submit" (click)="onSubmit()" value="Search">
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="form-group ">
+            <div class="col-md-2 col-md-offset-3">
+                <label> Company Code :
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label> {{stockinfo.CompanyCode}}
+                </label>
+            </div>
+       
+            <div class="col-md-2 ">
+                <label> Company Name :
+                </label>
+            </div>
+            <div class="col-md-3">
+                <label> {{stockinfo.CompanyName}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <br/>
+        <div class="row">
+        <div class="form-group ">
+            <div class="col-md-1 col-md-offset-3">
+                <label> From :
+                </label>
+            </div>
+            <div class="col-md-2">
+                <input type="date" [(ngModel)]="fromdt" class="form-control">
+            </div>
+            <div class="col-md-1 ">
+                <label> To :
+                </label>
+            </div>
+            <div class="col-md-2">
+                <input type="date" [(ngModel)]="todt" class="form-control">
+            </div>
+        </div>
+        </div>
+    <br>
+    <div class="row col-md-6 col-md-offset-3">
+        <table class="table table-bordered table-striped table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        StockPrice
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Time
+                    </th>
+                </tr>
+            </thead>
+
+            <tr *ngFor="let element of stockinfo.stockMarketPrices">
+                <td>{{element.StockPrice}}</td>
+                <td>{{element.StockDate}}</td>
+                <td>{{element.StockTime}}</td>
+            </tr>
+        </table>
+
+
+
+    </div>
+<br/>
+<div class="row col-md-5 col-md-offset-3">
+    <div class="form-group">
+<div class="col-md-6">
+    <label>Min : {{stockinfo.MinPrice}}</label> <br/>
+    <label>Max : {{stockinfo.MaxPrice}}</label><br/>
+    <label>Avg : {{stockinfo.AvgPrice}} </label>
+</div>
+    </div>
+</div>
+</div>
