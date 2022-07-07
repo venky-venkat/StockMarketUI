@@ -16,7 +16,7 @@ export class StockDetailsComponent implements OnInit {
   todt:string|undefined;
   stockinfo : stockprice = new stockprice();
   companies : any;
-  selectedcompany : string|undefined;
+  selectedcompany : string ="";
   ngOnInit(): void {
     this.service.getAllcompanies().subscribe((data:any)=>{
 console.log(data);
