@@ -3,6 +3,7 @@ import { stockprice } from './entity/stockprice';
 import { StockService } from './service/stock.service';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-stock-details',
   templateUrl: './stock-details.component.html',
@@ -28,12 +29,15 @@ this.companies=data;
   }
 
   onSubmit():void{
-    if (this.code == undefined || this.fromdt == undefined || this.todt == undefined){
+    if (this.code == undefined || this.code =="" 
+    || this.fromdt == undefined || this.fromdt == "" 
+    || this.todt == undefined || this.todt==""){
      this.msg="please fill the details to view stock details";
      this.toastr.error(this.msg,'Error');
      
     }
     else{
+      this.msg="";
       this.service.getStockprice(this.code,this.fromdt,this.todt).subscribe((data:any)=>{
         console.log(data);
         this.stockinfo = data;
