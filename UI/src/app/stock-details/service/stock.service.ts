@@ -9,11 +9,12 @@ export class StockService {
   constructor(private http: HttpClient) { }
   getStockprice(code:string|undefined,fromdt:string|undefined,todt:string|undefined){
 
-      let url = `http://localhost:36505/api/v1.0/market/stock/get/${code}/${fromdt}/${todt}`;
+      let url = `https://ctsfse2stockmarketapigateway.azurewebsites.net/api/v1.0/market/stock/get/${code}/${fromdt}/${todt}`;
       return this.http.get(url);
   }
   getAllcompanies(){
-    let url= "http://localhost:36505/api/v1.0/market/company/getall";
+    let url= "https://ctsfse2stockmarketapigateway.azurewebsites.net/api/v1.0/market/company/getall";
+    //"http://localhost:36505/api/v1.0/market/company/getall";
     return this.http.get(url);
   }
 }
