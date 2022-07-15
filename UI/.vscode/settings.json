@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/514d2f7b-068b-4224-b76f-0bee27573908/resourceGroups/CTS_FSE2/providers/Microsoft.Web/sites/stockmarketweb",
+    "appService.deploySubpath": "dist\\UI"
+}
